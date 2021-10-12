@@ -18,6 +18,39 @@ body #Main {
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
+  text-align: center;
+}
+body #Main form {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 20px 10px;
+  align-items: center;
+}
+body #Main form input[type=text], body #Main form input[type=submit] {
+  grid-column: span 2;
+  height: 50px;
+  border: none;
+  color: white;
+}
+body #Main form input[type=submit], body #Main form input[type=checkbox] {
+  cursor: pointer;
+}
+body #Main form input[type=submit] {
+  background-color: darkcyan;
+  font-size: 16px;
+}
+body #Main form input[type=text] {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  font-size: 18px;
+}
+body #Main form input[type=number] {
+  color: white;
+  border: none;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  font-size: 16px;
 }
 
 /*# sourceMappingURL=App.css.map */
