@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Checkbox from '@mui/material/Checkbox';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -74,12 +75,26 @@ export function Main(){
         setPassword(passwordPlaceholder);
     }
 
+    const copy = () => {
+        toast.success('Copied', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    }
+
     return (<div id="Main">
         <ToastContainer theme="dark"/>
         <h2>Password Generator</h2>
         <br/>
         <form onSubmit={e => generatePassword(e)}>
-            <input type="text" value={password} readOnly/>
+            <CopyToClipboard text={password} onCopy={() => copy()}>
+                <span id="password">{password}</span>
+            </CopyToClipboard>
             
             <label htmlFor="passwordLength">Password Length</label>
             <input type="number" value={passwordLength} min={5} max={15} onChange={e => setPasswordLength(e.target.value)}/>
